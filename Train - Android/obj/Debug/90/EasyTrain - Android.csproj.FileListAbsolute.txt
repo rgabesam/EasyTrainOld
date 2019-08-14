@@ -271,3 +271,5 @@ C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\stamp\_CopyPdbFil
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\EasyTrain - Android.csprojAssemblyReference.cache
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\res\layout\main_navigation_menu.xml

@@ -12,6 +12,8 @@ namespace Train___Android
 {
     //https://www.c-sharpcorner.com/article/xamarin-android-create-left-drawer-layout/
     //https://www.c-sharpcorner.com/article/xamarin-android-create-android-navigation-drawer-layout-using-support-design/
+
+    //https://stackoverflow.com/questions/44611228/navigation-drawer-in-multiple-activities-in-xamarin-android ...fragments
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
@@ -42,9 +44,45 @@ namespace Train___Android
             navigationView.NavigationItemSelected += (sender, e) =>
             {
                 e.MenuItem.SetChecked(true);
+
+                switch (e.MenuItem.ItemId)
+                {
+                    case Resource.Id.nav_home:
+                        {
+                            Toast.MakeText(Application.Context, "Welcome home !", ToastLength.Short).Show();
+                            break;
+                        }
+                    case Resource.Id.nav_goTrain:
+                        {
+                            Toast.MakeText(Application.Context, "Remember: no pain no gain.", ToastLength.Short).Show();
+                            break;
+                        }
+                    case Resource.Id.nav_database:
+                        {
+                            Toast.MakeText(Application.Context, "What do you have for me today?", ToastLength.Short).Show();
+                            break;
+                        }
+                    case Resource.Id.nav_faq:
+                        {
+                            Toast.MakeText(Application.Context, "App is simple, no FAQ needed.", ToastLength.Short).Show();
+                            break;
+                        }
+                    case Resource.Id.nav_bug:
+                        {
+                            Toast.MakeText(Application.Context, "App hasn't got any bugs.", ToastLength.Short).Show();
+                            break;
+                        }
+
+                }
+
                 drawerLayout.CloseDrawers();
+
+                
             };
         }
+
+       
+
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
