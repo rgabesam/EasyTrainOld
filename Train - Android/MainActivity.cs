@@ -7,6 +7,7 @@ using Android.Support.V4.Widget;
 using Android.Support.Design.Widget;
 using V7Toolbar = Android.Support.V7.Widget.Toolbar;
 using Android.Views;
+using Train___Android.Resources.Fragments;
 
 namespace Train___Android
 {
@@ -33,9 +34,12 @@ namespace Train___Android
 
             drawerLayout.AddDrawerListener(drawerToggle);
             drawerToggle.SyncState();
-            SetupDrawerContent(navigationView); 
+            SetupDrawerContent(navigationView);
 
-            
+            var trans = SupportFragmentManager.BeginTransaction();
+            trans.Add(Resource.Id.fragmentContainer, new HomeFragment(), "HomeFragment");
+            trans.Commit();
+
 
         }
 
@@ -49,26 +53,31 @@ namespace Train___Android
                 {
                     case Resource.Id.nav_home:
                         {
+                            ReplaceFragment(Resource.Id.fragmentContainer, new HomeFragment(), "HomeFragment");
                             Toast.MakeText(Application.Context, "Welcome home !", ToastLength.Short).Show();
                             break;
                         }
                     case Resource.Id.nav_goTrain:
                         {
+                            ReplaceFragment(Resource.Id.fragmentContainer, new GoTrainFragment(), "GoTrainFragment");
                             Toast.MakeText(Application.Context, "Remember: no pain no gain.", ToastLength.Short).Show();
                             break;
                         }
                     case Resource.Id.nav_database:
                         {
+                            ReplaceFragment(Resource.Id.fragmentContainer, new DatabaseFragment(), "DatabaseFragment");
                             Toast.MakeText(Application.Context, "What do you have for me today?", ToastLength.Short).Show();
                             break;
                         }
                     case Resource.Id.nav_faq:
                         {
+                            ReplaceFragment(Resource.Id.fragmentContainer, new FAQFragment(), "FAQFragment");
                             Toast.MakeText(Application.Context, "App is simple, no FAQ needed.", ToastLength.Short).Show();
                             break;
                         }
                     case Resource.Id.nav_bug:
                         {
+                            ReplaceFragment(Resource.Id.fragmentContainer, new ReportBugFragment(), "ReportBugFragment");
                             Toast.MakeText(Application.Context, "App hasn't got any bugs.", ToastLength.Short).Show();
                             break;
                         }
@@ -88,6 +97,13 @@ namespace Train___Android
         {
             navigationView.InflateMenu(Resource.Menu.menu); //Navigation Drawer Layout Menu Creation  
             return true;
+        }
+
+        private void ReplaceFragment(int targetId, Android.Support.V4.App.Fragment fragment, string tag)
+        {
+            var trans = SupportFragmentManager.BeginTransaction();
+            trans.Replace(targetId, fragment, tag);
+            trans.Commit();
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

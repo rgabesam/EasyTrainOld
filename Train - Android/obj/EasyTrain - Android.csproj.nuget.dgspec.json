@@ -57,6 +57,10 @@
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.2.0, )"
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.5.231, )"
             }
           }
         }

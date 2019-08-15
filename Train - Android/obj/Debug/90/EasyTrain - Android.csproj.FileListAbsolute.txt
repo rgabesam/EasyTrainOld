@@ -272,4 +272,14 @@ C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\stamp\_GenerateJa
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\EasyTrain - Android.csprojAssemblyReference.cache
-C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\res\layout\main_navigation_menu.xml
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\res\layout\home_fragment.xml
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md5cd5a4f3f2f83120b888824754fdcc9e2\HomeFragment.java
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\res\layout\database_fragment.xml
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\res\layout\gotrain_fragment.xml
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md58fa8e08ac835f5e029cd6dbf39be2f0a\DatabaseFragment.java
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md58fa8e08ac835f5e029cd6dbf39be2f0a\GoTrainFragment.java
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md58fa8e08ac835f5e029cd6dbf39be2f0a\HomeFragment.java
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\res\layout\faq_fragment.xml
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\res\layout\reportbug_fragment.xml
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md58fa8e08ac835f5e029cd6dbf39be2f0a\FAQFragment.java
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md58fa8e08ac835f5e029cd6dbf39be2f0a\ReportBugFragment.java
