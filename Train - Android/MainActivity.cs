@@ -8,11 +8,11 @@ using Android.Support.Design.Widget;
 using V7Toolbar = Android.Support.V7.Widget.Toolbar;
 using Android.Views;
 using Train___Android.Resources.Fragments;
+using Android.Content;
 
 namespace Train___Android
 {
-    //https://www.c-sharpcorner.com/article/xamarin-android-create-left-drawer-layout/
-    //https://www.c-sharpcorner.com/article/xamarin-android-create-android-navigation-drawer-layout-using-support-design/
+    
 
     //https://stackoverflow.com/questions/44611228/navigation-drawer-in-multiple-activities-in-xamarin-android ...fragments
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
@@ -59,7 +59,9 @@ namespace Train___Android
                         }
                     case Resource.Id.nav_goTrain:
                         {
-                            ReplaceFragment(Resource.Id.fragmentContainer, new GoTrainFragment(), "GoTrainFragment");
+                            //ReplaceFragment(Resource.Id.fragmentContainer, new GoTrainFragment(), "GoTrainFragment");
+                            var nextAct = new Intent(this, typeof(TrainingActivity));
+                            StartActivity(nextAct);
                             Toast.MakeText(Application.Context, "Remember: no pain no gain.", ToastLength.Short).Show();
                             break;
                         }

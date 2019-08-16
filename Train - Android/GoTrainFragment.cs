@@ -18,14 +18,19 @@ namespace Train___Android.Resources.Fragments
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            // Create your fragment here
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             View view = inflater.Inflate(Resource.Layout.goTrain_fragment, container, false);
+
             return view;
         }
+
+        //public override void OnActivityCreated(Bundle savedInstanceState)
+        //{
+        //    //View.FindViewById<Android.Support.Design.BottomNavigation>(Resource.Id.)
+
+        //}
     }
 }
