@@ -1,0 +1,1 @@
+<!--For all properties see: http://developer.android.com/guide/topics/resources/menu-resource.html--><menu xmlns:android="http://schemas.android.com/apk/res/android"><group android:id="@+id/editOrDeleteMenu_group"><item android:id="@+id/item_edit" android:title="Edit" /><item android:id="@+id/item_delete" android:title="Delete" /></group></menu>

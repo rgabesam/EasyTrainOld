@@ -63,6 +63,9 @@
     <Compile Include="Database.cs" />
     <Compile Include="DatabaseFragment.cs" />
     <Compile Include="DbThings.cs" />
+    <Compile Include="ExerciseActivity.cs" />
+    <Compile Include="ExerciseCardViewFragment.cs" />
+    <Compile Include="ExerciseEditFragment.cs" />
     <Compile Include="FAQFragment.cs" />
     <Compile Include="GoTrainFragment.cs" />
     <Compile Include="HomeFragment.cs" />
@@ -71,6 +74,7 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TrainingActivity.cs" />
+    <Compile Include="TrainingScreenAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -185,6 +189,29 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\baseline_fitness_center_24px.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\CustomListTrainingItem.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ExerciseEdit.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_exercise.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ExerciseCardView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\EditOrDeleteMenu.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

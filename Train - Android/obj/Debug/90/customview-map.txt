@@ -6,31 +6,42 @@ android.support.design.widget.CoordinatorLayout;obj\Debug\90\res\layout\toolbar.
 android.support.design.widget.NavigationView;obj\Debug\90\res\layout\activity_main.xml
 android.support.v4.widget.DrawerLayout;obj\Debug\90\res\layout\activity_main.xml
 android.support.v4.widget.DrawerLayout;obj\Debug\90\res\layout\activity_training.xml
-android.support.v7.widget.CardView;obj\Debug\90\res\layout\activity_training.xml
+android.support.v7.widget.CardView;obj\Debug\90\res\layout\customlisttrainingitem.xml
+android.support.v7.widget.CardView;obj\Debug\90\res\layout\exercisecardview.xml
 android.support.v7.widget.Toolbar;obj\Debug\90\res\layout\toolbar.xml
 background;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 background;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
+Button;obj\Debug\90\res\layout\exerciseedit.xml
 cache-path;C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\lp\40\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 color;obj\Debug\90\res\values\colors.xml
 color;obj\Debug\90\res\values\ic_launcher_background.xml
+EditText;obj\Debug\90\res\layout\exerciseedit.xml
 external-cache-path;C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\lp\40\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 external-path;C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\lp\40\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
+FrameLayout;obj\Debug\90\res\layout\activity_exercise.xml
 FrameLayout;obj\Debug\90\res\layout\activity_main.xml
-FrameLayout;obj\Debug\90\res\layout\activity_training.xml
+group;obj\Debug\90\res\menu\editordeletemenu.xml
 group;obj\Debug\90\res\menu\menu.xml
 group;obj\Debug\90\res\menu\training_nav.xml
-ImageView;obj\Debug\90\res\layout\activity_training.xml
+include;obj\Debug\90\res\layout\activity_exercise.xml
 include;obj\Debug\90\res\layout\activity_main.xml
 include;obj\Debug\90\res\layout\activity_training.xml
 item;obj\Debug\90\res\drawable\nav_item_colors.xml
+item;obj\Debug\90\res\menu\editordeletemenu.xml
 item;obj\Debug\90\res\menu\menu.xml
 item;obj\Debug\90\res\menu\training_nav.xml
 item;obj\Debug\90\res\values\styles.xml
+LinearLayout;obj\Debug\90\res\layout\activity_exercise.xml
 LinearLayout;obj\Debug\90\res\layout\activity_main.xml
 LinearLayout;obj\Debug\90\res\layout\activity_training.xml
+LinearLayout;obj\Debug\90\res\layout\customlisttrainingitem.xml
+LinearLayout;obj\Debug\90\res\layout\exercisecardview.xml
+LinearLayout;obj\Debug\90\res\layout\exerciseedit.xml
 LinearLayout;obj\Debug\90\res\layout\faq_fragment.xml
+ListView;obj\Debug\90\res\layout\activity_training.xml
+menu;obj\Debug\90\res\menu\editordeletemenu.xml
 menu;obj\Debug\90\res\menu\menu.xml
 menu;obj\Debug\90\res\menu\training_nav.xml
 path;obj\Debug\90\res\drawable\arm_flex.xml
@@ -41,7 +52,6 @@ path;obj\Debug\90\res\drawable\human_handsup.xml
 path;obj\Debug\90\res\drawable\tune_vertical.xml
 path;obj\Debug\90\res\drawable\walk.xml
 paths;C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\lp\40\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
-RelativeLayout;obj\Debug\90\res\layout\activity_training.xml
 RelativeLayout;obj\Debug\90\res\layout\database_fragment.xml
 RelativeLayout;obj\Debug\90\res\layout\gotrain_fragment.xml
 RelativeLayout;obj\Debug\90\res\layout\home_fragment.xml
@@ -50,12 +60,15 @@ resources;obj\Debug\90\res\values\colors.xml
 resources;obj\Debug\90\res\values\ic_launcher_background.xml
 resources;obj\Debug\90\res\values\strings.xml
 resources;obj\Debug\90\res\values\styles.xml
-ScrollView;obj\Debug\90\res\layout\activity_training.xml
+ScrollView;obj\Debug\90\res\layout\exercisecardview.xml
+ScrollView;obj\Debug\90\res\layout\exerciseedit.xml
 selector;obj\Debug\90\res\drawable\nav_item_colors.xml
 string;obj\Debug\90\res\values\strings.xml
 style;obj\Debug\90\res\values\styles.xml
-TextView;obj\Debug\90\res\layout\activity_training.xml
+TextView;obj\Debug\90\res\layout\customlisttrainingitem.xml
 TextView;obj\Debug\90\res\layout\database_fragment.xml
+TextView;obj\Debug\90\res\layout\exercisecardview.xml
+TextView;obj\Debug\90\res\layout\exerciseedit.xml
 TextView;obj\Debug\90\res\layout\faq_fragment.xml
 TextView;obj\Debug\90\res\layout\gotrain_fragment.xml
 TextView;obj\Debug\90\res\layout\home_fragment.xml

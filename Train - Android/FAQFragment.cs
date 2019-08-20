@@ -25,6 +25,7 @@ namespace Train___Android.Resources.Fragments
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             View view = inflater.Inflate(Resource.Layout.faq_fragment, container, false);
+            view.FindViewById<TextView>(Resource.Id.faqFragment_text).Text = "HELL YEAH";
             return view;
         }
     }
