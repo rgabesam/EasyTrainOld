@@ -15,13 +15,14 @@ using Train___Android.Database;
 
 namespace Train___Android
 {
-    interface IExercise
+    interface IExerciseActivity
     {
         void ReturnExercise(Exercise value);
+        void ShowOverflowMenu(bool showMenu);
     }
 
-    [Activity(Label = "")]
-    public class ExerciseActivity : AppCompatActivity, IExercise
+    [Activity(Label = "", NoHistory = true)]
+    public class ExerciseActivity : AppCompatActivity, IExerciseActivity
     {
         Exercise exercise;
         IMenu menu;
@@ -59,7 +60,10 @@ namespace Train___Android
             SetSupportActionBar(toolbar);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
+
             
+            
+
             cardView = Intent.GetBooleanExtra("cardView", true);
 
             intent = new Intent(this, typeof(ExerciseEditFragment));
@@ -72,39 +76,57 @@ namespace Train___Android
             }
             else //this branch means that user is creating new exercise
             {
-                ShowOverflowMenu(false); //hiding menu
-                var trans = SupportFragmentManager.BeginTransaction();
-                trans.Add(Resource.Id.fragmentContainer_activityExercise, new ExerciseEditFragment(), "ExerciseEditFragment");
-
-                intent.PutExtra("newExercise", true);
-                trans.Commit();
+                StartEditView(true);
             }
         }
 
+
+
         private void StartCardView()
         {
-            SaveExerciseProperties();
-            ShowOverflowMenu(true); //showing menu
+            Bundle args = new Bundle();
+            SaveExerciseProperties(args);
+            //ShowOverflowMenu(true); //showing menu
             var trans = SupportFragmentManager.BeginTransaction();
-            trans.Add(Resource.Id.fragmentContainer_activityExercise, new ExerciseCardViewFragment(), "ExerciseCardViewFragment");
+            var nextFragment = new ExerciseCardViewFragment();
+            nextFragment.Arguments = args;
+            trans.Add(Resource.Id.fragmentContainer_activityExercise, nextFragment, "ExerciseCardViewFragment");
             trans.Commit();
         }
 
+        private void StartEditView(bool newExerise)
+        {
+            var trans = SupportFragmentManager.BeginTransaction();
+            var nextFragment = new ExerciseEditFragment();
+            Bundle args = new Bundle();
+            args.PutBoolean("newExercise", newExerise);
+
+            if (!newExerise)
+            {
+                SaveExerciseProperties(args);
+            }
+
+            nextFragment.Arguments = args;
+            trans.Add(Resource.Id.fragmentContainer_activityExercise, nextFragment, "ExerciseEditFragment");
+            trans.Commit();
+        }
+
+        private void SaveExerciseProperties(Bundle args)
+        {
+            //Bundle args = new Bundle();
+            args.PutString("name", exercise.Name);
+            args.PutString("description", exercise.Description);
+            args.PutInt("time", exercise.Time);       
+            args.PutByte("difficulty", (sbyte)exercise.Difficulty);     //only way is using sbyte, but htat doesn't matter because difficulty is between 1 and 10
+            args.PutString("place", exercise.Place);
+            //return args;
+        }
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             var inflater = MenuInflater;
             inflater.Inflate(Resource.Menu.EditOrDeleteMenu, menu);
             this.menu = menu;
             return true;
-        }
-
-        private void SaveExerciseProperties()
-        {
-            intent.PutExtra("name", exercise.Name);
-            intent.PutExtra("description", exercise.Description);
-            intent.PutExtra("time", exercise.Time);
-            intent.PutExtra("difficulty", exercise.Difficulty);
-            intent.PutExtra("place", exercise.Place);
         }
 
         public void ShowOverflowMenu(bool showMenu)
@@ -119,18 +141,15 @@ namespace Train___Android
             switch (item.ItemId)
             {
                 case Resource.Id.item_edit:
-                    var trans = SupportFragmentManager.BeginTransaction();
-                    trans.Add(Resource.Id.fragmentContainer_activityExercise, new ExerciseEditFragment(), "ExerciseEditFragment");
-                    intent.PutExtra("newExercise", false);
-                    //add current Exercise fields
-                    SaveExerciseProperties();
-                    ShowOverflowMenu(false); //hiding menu
-                    trans.Commit();
+                    StartEditView(false);
                     return true;
                 case Resource.Id.item_delete:
                     MyDatabase.DeleteExercise(exerciseId);
                     Finish();
                     return true;
+                case Android.Resource.Id.Home:
+                    OnBackPressed();
+                    break;
             }
             return base.OnOptionsItemSelected(item);
         }

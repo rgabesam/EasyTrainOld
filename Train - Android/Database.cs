@@ -51,11 +51,11 @@ namespace Train___Android.Database
         static public void UpdateExercise(Exercise exercise)
         {
             connection.Query<Exercise>($"UPDATE Exercises SET " +
-                $"Name={exercise.Name}," +
-                $"Description={exercise.Description}," +
-                $"Time={exercise.Time}," +
-                $"Difficulty={exercise.Difficulty}," +
-                $"Place={exercise.Place}" +
+                $"Name='{exercise.Name}'," +
+                $"Description='{exercise.Description}'," +
+                $"Time='{exercise.Time}'," +
+                $"Difficulty='{exercise.Difficulty}'," +
+                $"Place='{exercise.Place}' " +
                 $"WHERE Id={exercise.Id}");
         }
 

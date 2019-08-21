@@ -12,6 +12,7 @@ namespace Train___Android.Database
     {
         string Name { get; set; }
         string Description { get; set; }
+        int Id { get; set; }
     }
 
     [Table("Exercises")]
@@ -26,8 +27,10 @@ namespace Train___Android.Database
         //tags tags are stored in separate table so it has its own class  -  allows to group exercise by users own "attributes"
         public string Place { get; set; }
 
-        string IDisplayable.Name { get => Name; set => Name = value; }
-        string IDisplayable.Description { get => Description; set => Description = value; }
+        //[Ignore]
+        //string IDisplayable.Name { get => Name; set => Name = value; }
+        //[Ignore]
+        //string IDisplayable.Description { get => Description; set => Description = value; }
 
     }
 
@@ -41,7 +44,10 @@ namespace Train___Android.Database
         public int Time { get; set; }    //sum of exercises times ~ in minutes
         public byte Difficulty { get; set; }    //from 1 to 10, where 10 is the hardest
         public string Place { get; set; }
+
+        [Ignore]
         string IDisplayable.Name { get => Name; set => Name = value; }
+        [Ignore]
         string IDisplayable.Description { get => Description; set => Description = value; }
 
     }
@@ -55,7 +61,10 @@ namespace Train___Android.Database
         public string Description { get; set; }
         public int Time { get; set; }    //number of days the training plan least
         public byte Difficulty { get; set; }    //from 1 to 10, where 10 is the hardest
+
+        [Ignore]
         string IDisplayable.Name { get => Name; set => Name = value; }
+        [Ignore]
         string IDisplayable.Description { get => Description; set => Description = value; }
     }
 

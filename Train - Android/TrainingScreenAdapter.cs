@@ -13,12 +13,12 @@ using Train___Android.Database;
 
 namespace Train___Android
 {
-    class TrainingScreenAdapter : BaseAdapter<IDisplayable>
+    class TrainingScreenAdapter<T> : BaseAdapter<T> where T: IDisplayable
     {
-        List<IDisplayable> items;
+        List<T> items;
         Activity context;
 
-        public TrainingScreenAdapter(Activity context, List<IDisplayable> items) : base()
+        public TrainingScreenAdapter(Activity context, List<T> items) : base()
         {
             this.context = context;
             this.items = items;
@@ -29,7 +29,7 @@ namespace Train___Android
             return position;
         }
 
-        public override IDisplayable this[int position]
+        public override T this[int position]
         {
             get { return items[position]; }
         }

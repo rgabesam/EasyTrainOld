@@ -337,3 +337,4 @@ C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\stamp\_GenerateJa
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md5917d25482e5da87ec1c39af0d7d5bb9b\TrainingActivity_FabAnimatorListener.java
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md5917d25482e5da87ec1c39af0d7d5bb9b\TrainingScreenAdapter_1.java

@@ -11,6 +11,7 @@ public class ExerciseEditFragment
 	static {
 		__md_methods = 
 			"n_onCreate:(Landroid/os/Bundle;)V:GetOnCreate_Landroid_os_Bundle_Handler\n" +
+			"n_onPrepareOptionsMenu:(Landroid/view/Menu;)V:GetOnPrepareOptionsMenu_Landroid_view_Menu_Handler\n" +
 			"n_onCreateView:(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;:GetOnCreateView_Landroid_view_LayoutInflater_Landroid_view_ViewGroup_Landroid_os_Bundle_Handler\n" +
 			"n_onAttach:(Landroid/content/Context;)V:GetOnAttach_Landroid_content_Context_Handler\n" +
 			"";
@@ -32,6 +33,14 @@ public class ExerciseEditFragment
 	}
 
 	private native void n_onCreate (android.os.Bundle p0);
+
+
+	public void onPrepareOptionsMenu (android.view.Menu p0)
+	{
+		n_onPrepareOptionsMenu (p0);
+	}
+
+	private native void n_onPrepareOptionsMenu (android.view.Menu p0);
 
 
 	public android.view.View onCreateView (android.view.LayoutInflater p0, android.view.ViewGroup p1, android.os.Bundle p2)

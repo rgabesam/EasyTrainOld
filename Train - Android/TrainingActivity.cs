@@ -21,9 +21,13 @@ namespace Train___Android
     [Activity(Label = "")]
     public class TrainingActivity : AppCompatActivity
     {
+        enum mode {exercise = 1, training = 2, plan = 3};
         public BottomNavigationView bottomNavigation;
         ListView listView;
-        List<IDisplayable> tableItems;
+        List<Exercise> exercises;
+        List<Training> trainings;
+        List<TrainingInPlan> plans;
+        private mode viewMode = mode.exercise;  //mode can be only 1 or 2 or 3, each represents if user is looking at exercises=1 or trainings=2 or plans=3
 
         private static bool isFabOpen;
         private FloatingActionButton fab_addItem;
@@ -32,16 +36,9 @@ namespace Train___Android
         private View bgFabMenu;
 
 
-        private void FillTAbleItems()
+        private void UpdateListItems()
         {
-            //tableItems = new List<IDisplayable>();
-            for (int i = 0; i < 50; i++)
-            {
-                IDisplayable item = new Exercise();
-                item.Name = $"Item no. {i}";
-                item.Description = $"This is very long and very and extra ordinary boring description of item no.   {i}   just to have there something";
-                tableItems.Add(item);
-            }
+            exercises = MyDatabase.GetAllExercises();
         }
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -50,6 +47,7 @@ namespace Train___Android
             SetContentView(Resource.Layout.activity_training);
 
             #region fab menu
+
             fab_addItem = FindViewById<FloatingActionButton>(Resource.Id.fab_add_trainingActivity);
             fab_filter = FindViewById<FloatingActionButton>(Resource.Id.fab_filters_trainingActivity);
             fabMain = FindViewById<FloatingActionButton>(Resource.Id.fab_menu_trainingActivity);
@@ -86,29 +84,9 @@ namespace Train___Android
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
 
-            
-
-            //for (int i = 0; i < 20; i++)
-            //{
-            //    Exercise exr = new Exercise();
-            //    exr.Name = $"Exercise no. {i}";
-            //    exr.Description = $"This is very long and very and extra ordinary boring description of item no.   {i}   just to have there something";
-            //    MyDatabase.InsertExercise(exr);
-            //}
-            tableItems = new List<IDisplayable>();
-            //FillTAbleItems();
-            var exercises = MyDatabase.GetAllExercises();
-            foreach (var exr in exercises)
-            {
-                tableItems.Add(exr);
-            }
-            listView.Adapter = new TrainingScreenAdapter(this, tableItems);
-            //listView.ItemClick += OnListItemClick;  // to be defined
-
             //var trans = SupportFragmentManager.BeginTransaction();
             //trans.Add(Resource.Id.fragmentContainer, new FAQFragment(), "FAQFragment");
             //trans.Commit();
-
 
             bottomNavigation = FindViewById<BottomNavigationView>(Resource.Id.bottom_navigation);
 
@@ -132,7 +110,22 @@ namespace Train___Android
             };
         }
 
-       
+        protected override void OnResume()
+        {
+            base.OnResume();
+            UpdateListItems();
+            listView.Adapter = new TrainingScreenAdapter<Exercise>(this, exercises);
+            listView.ItemClick += OnListItemClick;
+        }
+
+        private void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            var intent = new Intent(this, typeof(ExerciseActivity));
+            intent.PutExtra("cardView", true);
+            intent.PutExtra("exerciseId", exercises[e.Position].Id);
+            StartActivity(intent);
+        }
+
         public override bool OnSupportNavigateUp()
         {
             OnBackPressed();
