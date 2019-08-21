@@ -1,7 +1,3 @@
-C:\Users\rgabe\source\repos\Train\Train - Android\bin\Debug\Train - Android.dll
-C:\Users\rgabe\source\repos\Train\Train - Android\bin\Debug\Train - Android.pdb
-C:\Users\rgabe\source\repos\Train\Train - Android\bin\Debug\com.companyname.train___android.apk
-C:\Users\rgabe\source\repos\Train\Train - Android\bin\Debug\com.companyname.train___android-Signed.apk
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\build.props
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\adb.props
@@ -28,6 +24,10 @@ C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\flata\a0516360deb
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\flata\89dba5b1c8881b0d1d1648332425c1a673c8a023.flata
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\flata\d0cc0c9ee2824d8feff99329136d42bb647e19d2.flata
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\flata\compiled.flata
+C:\Users\rgabe\source\repos\Train\Train - Android\bin\Debug\Train - Android.dll
+C:\Users\rgabe\source\repos\Train\Train - Android\bin\Debug\Train - Android.pdb
+C:\Users\rgabe\source\repos\Train\Train - Android\bin\Debug\com.companyname.train___android.apk
+C:\Users\rgabe\source\repos\Train\Train - Android\bin\Debug\com.companyname.train___android-Signed.apk
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\R.txt
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\R.cs.flag
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\EasyTrain - Android.csproj.CoreCompileInputs.cache
@@ -78,6 +78,9 @@ C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\res\layout\exerci
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\res\layout\activity_exercise.xml
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\res\layout\exercisecardview.xml
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\res\menu\editordeletemenu.xml
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\res\drawable\plus.xml
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\res\drawable\tab_plus.xml
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\res\values\dimens.xml
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\uploadflags.txt
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\resolvedassemblies.hash
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\linksrc\Train - Android.dll
@@ -273,38 +276,39 @@ C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md591
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md5917d25482e5da87ec1c39af0d7d5bb9b\MainActivity.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md5917d25482e5da87ec1c39af0d7d5bb9b\TrainingActivity.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md5917d25482e5da87ec1c39af0d7d5bb9b\TrainingScreenAdapter.java
-C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\mono\android\support\v13\view\inputmethod\InputConnectionCompat_OnCommitContentListenerImplementor.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md58fa8e08ac835f5e029cd6dbf39be2f0a\DatabaseFragment.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md58fa8e08ac835f5e029cd6dbf39be2f0a\FAQFragment.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md58fa8e08ac835f5e029cd6dbf39be2f0a\GoTrainFragment.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md58fa8e08ac835f5e029cd6dbf39be2f0a\HomeFragment.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md58fa8e08ac835f5e029cd6dbf39be2f0a\ReportBugFragment.java
-C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\mono\android\support\v13\view\DragStartHelper_OnDragStartListenerImplementor.java
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\mono\android\support\v13\view\inputmethod\InputConnectionCompat_OnCommitContentListenerImplementor.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\android\support\v7\widget\Toolbar_NavigationOnClickEventDispatcher.java
-C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\mono\android\support\transition\Transition_TransitionListenerImplementor.java
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\mono\android\support\v13\view\DragStartHelper_OnDragStartListenerImplementor.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\android\support\v7\recyclerview\R.java
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\android\support\v7\cardview\R.java
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\mono\android\support\transition\Transition_TransitionListenerImplementor.java
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\android\support\v7\appcompat\R.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\mono\android\support\design\widget\AppBarLayout_OnOffsetChangedListenerImplementor.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\mono\android\support\design\widget\BottomNavigationView_OnNavigationItemReselectedListenerImplementor.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\mono\android\support\design\widget\BottomNavigationView_OnNavigationItemSelectedListenerImplementor.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\mono\android\support\design\widget\NavigationView_OnNavigationItemSelectedListenerImplementor.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\mono\android\support\design\widget\SwipeDismissBehavior_OnDismissListenerImplementor.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\mono\android\support\design\widget\TabLayout_BaseOnTabSelectedListenerImplementor.java
-C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\android\support\v7\cardview\R.java
-C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\mono\android\support\design\chip\ChipGroup_OnCheckedChangeListenerImplementor.java
-C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\android\support\v7\appcompat\R.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\android\support\v7\app\AlertDialog_IDialogInterfaceOnCancelListenerImplementor.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\android\support\v7\app\AlertDialog_IDialogInterfaceOnClickListenerImplementor.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\android\support\v7\app\AlertDialog_IDialogInterfaceOnMultiChoiceClickListenerImplementor.java
-C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\mono\android\app\ApplicationRegistration.java
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\mono\android\support\design\chip\ChipGroup_OnCheckedChangeListenerImplementor.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\android\support\transition\R.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\android\support\design\widget\Snackbar_SnackbarActionClickImplementor.java
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\mono\android\app\ApplicationRegistration.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\android\support\design\R.java
-C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\mono\MonoPackageManager_Resources.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\android\support\customtabs\CustomTabsClient_CustomTabsCallbackImpl.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\android\support\customtabs\R.java
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\mono\MonoPackageManager_Resources.java
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\android\support\coordinatorlayout\R.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md5dcb6eccdc824e0677ffae8ccdde42930\CustomTabsServiceConnectionImpl.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md5dcb6eccdc824e0677ffae8ccdde42930\KeepAliveService.java
-C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\android\support\coordinatorlayout\R.java
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\android\support\compat\R.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md5d630c3d3bfb5f5558520331566132d97\AccelerometerListener.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md5d630c3d3bfb5f5558520331566132d97\ActivityLifecycleContextListener.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md5d630c3d3bfb5f5558520331566132d97\BarometerListener.java
@@ -318,7 +322,6 @@ C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md5d6
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md5d630c3d3bfb5f5558520331566132d97\SensorListener.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md5d630c3d3bfb5f5558520331566132d97\SingleLocationListener.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md5d630c3d3bfb5f5558520331566132d97\TextToSpeechImplementation.java
-C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\android\support\compat\R.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\bin\packaged_resources
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\com\companyname\train___android\R.java
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\bin\classes.dex
@@ -333,3 +336,4 @@ C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\stamp\_CopyPdbFil
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\rgabe\source\repos\Train\Train - Android\obj\Debug\90\android\src\md5917d25482e5da87ec1c39af0d7d5bb9b\TrainingActivity_FabAnimatorListener.java

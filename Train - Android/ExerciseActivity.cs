@@ -127,12 +127,10 @@ namespace Train___Android
                     ShowOverflowMenu(false); //hiding menu
                     trans.Commit();
                     return true;
-                    break;
                 case Resource.Id.item_delete:
                     MyDatabase.DeleteExercise(exerciseId);
                     Finish();
                     return true;
-                    break;
             }
             return base.OnOptionsItemSelected(item);
         }
