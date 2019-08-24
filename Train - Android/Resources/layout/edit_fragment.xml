@@ -27,7 +27,9 @@
             android:id="@+id/exerciseEdit_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+        <!-- things below have are adjustable only in exercises-->
         <TextView
+            android:id="@+id/exercise_view_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Necessary time in minutes to copmplete the exercise"/>
@@ -37,6 +39,7 @@
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"/>
         <TextView
+            android:id="@+id/exercise_view_difficulty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Difficulty on scale from 1 to 10"/>
@@ -46,6 +49,7 @@
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"/>
         <TextView
+            android:id="@+id/exercise_view_place"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Where could be the exercise done?"/>
@@ -53,8 +57,9 @@
             android:id="@+id/exerciseEdit_place"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+        
         <Button
-            android:id="@+id/exerciseEdit_doneButton"
+            android:id="@+id/itemEdit_doneButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="DONE!"

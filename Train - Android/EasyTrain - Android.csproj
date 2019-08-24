@@ -63,9 +63,9 @@
     <Compile Include="Database.cs" />
     <Compile Include="DatabaseFragment.cs" />
     <Compile Include="DbThings.cs" />
-    <Compile Include="ExerciseActivity.cs" />
+    <Compile Include="EditOrViewActivity.cs" />
     <Compile Include="ExerciseCardViewFragment.cs" />
-    <Compile Include="ExerciseEditFragment.cs" />
+    <Compile Include="EditFragment.cs" />
     <Compile Include="FAQFragment.cs" />
     <Compile Include="GoTrainFragment.cs" />
     <Compile Include="HomeFragment.cs" />
@@ -196,12 +196,12 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\ExerciseEdit.xml">
+    <AndroidResource Include="Resources\layout\edit_fragment.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\activity_exercise.xml">
+    <AndroidResource Include="Resources\layout\activity_editOrView.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

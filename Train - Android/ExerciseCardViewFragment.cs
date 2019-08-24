@@ -21,7 +21,7 @@ namespace Train___Android
         TextView difficultyTextView;
         TextView placeTextView;
 
-        private IExerciseActivity homeActivity;
+        private IEditActivity homeActivity;
 
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -61,7 +61,7 @@ namespace Train___Android
         public override void OnAttach(Context context)
         {
             base.OnAttach(context);
-            homeActivity = (IExerciseActivity)context;
+            homeActivity = (IEditActivity)context;
         }
     }
 }

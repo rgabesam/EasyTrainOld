@@ -27,10 +27,7 @@ namespace Train___Android.Database
         //tags tags are stored in separate table so it has its own class  -  allows to group exercise by users own "attributes"
         public string Place { get; set; }
 
-        //[Ignore]
-        //string IDisplayable.Name { get => Name; set => Name = value; }
-        //[Ignore]
-        //string IDisplayable.Description { get => Description; set => Description = value; }
+        
 
     }
 
@@ -45,15 +42,12 @@ namespace Train___Android.Database
         public byte Difficulty { get; set; }    //from 1 to 10, where 10 is the hardest
         public string Place { get; set; }
 
-        [Ignore]
-        string IDisplayable.Name { get => Name; set => Name = value; }
-        [Ignore]
-        string IDisplayable.Description { get => Description; set => Description = value; }
+        
 
     }
 
     [Table("Plans")]
-    public class TrainingPlan : IDisplayable
+    public class Plan : IDisplayable
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
@@ -62,10 +56,7 @@ namespace Train___Android.Database
         public int Time { get; set; }    //number of days the training plan least
         public byte Difficulty { get; set; }    //from 1 to 10, where 10 is the hardest
 
-        [Ignore]
-        string IDisplayable.Name { get => Name; set => Name = value; }
-        [Ignore]
-        string IDisplayable.Description { get => Description; set => Description = value; }
+        
     }
 
     [Table("Tags")]
@@ -85,7 +76,8 @@ namespace Train___Android.Database
     }
 
 
-    //next classes and tables as well are to hold relations
+    //next classes and tables as well are to hold relations, 
+    //composite key is not supported
 
     [Table("ExerciseTags")]
     class ExerciseTag

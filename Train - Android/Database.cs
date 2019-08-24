@@ -33,10 +33,13 @@ namespace Train___Android.Database
 
         static public void CreateDb()
         {
-            connection.CreateTable<Exercise>();        
+            connection.CreateTable<Exercise>();
+            connection.CreateTable<Training>();
+            connection.CreateTable<Plan>();
+            connection.CreateTable<ExerciseInTraining>();
         }
 
-
+        #region Exercise methods
         static public void InsertExercise(Exercise exercise)
         {
             connection.Insert(exercise);
@@ -72,5 +75,83 @@ namespace Train___Android.Database
         {
             connection.Delete<Exercise>(id);
         }
+
+        #endregion
+
+        #region Training methods
+
+        static public void InsertTraining(Training training)
+        {
+            connection.Insert(training);
+        }
+
+        static public List<Training> GetAllTrainings()
+        {
+            return connection.Table<Training>().ToList();
+        }
+
+        static public void UpdateTraining(Training training)
+        {
+
+            //there or somewhere else must be upgraded time, diff, place, because that is depentdent on exercises
+            connection.Query<Training>($"UPDATE Trainings SET " +
+                $"Name='{training.Name}'," +
+                $"Description='{training.Description}' " +
+                $"WHERE Id={training.Id}");
+        }
+
+        static public Training GetTraining(int id)
+        {
+            return connection.Get<Training>(id);
+        }
+
+        static public void DeleteTraining(Training training)
+        {
+            connection.Delete<Training>(training.Id);
+        }
+        static public void DeleteTraining(int id)
+        {
+            connection.Delete<Training>(id);
+        }
+
+        #endregion
+
+        #region Plans methods
+
+        static public void InsertPlan(Plan plan)
+        {
+            connection.Insert(plan);
+        }
+
+        static public List<Plan> GetAllPlans()
+        {
+            return connection.Table<Plan>().ToList();
+        }
+
+        static public void UpdatePlan(Plan plan)
+        {
+
+            //there or somewhere else must be upgraded time, diff because that is depentdent on trainings
+            connection.Query<Plan>($"UPDATE Plans SET " +
+                $"Name='{plan.Name}'," +
+                $"Description='{plan.Description}' " +
+                $"WHERE Id={plan.Id}");
+        }
+
+        static public Plan GetPlan(int id)
+        {
+            return connection.Get<Plan>(id);
+        }
+
+        static public void DeletePlan(Plan plan)
+        {
+            connection.Delete<Plan>(plan.Id);
+        }
+        static public void DeletePlan(int id)
+        {
+            connection.Delete<Plan>(id);
+        }
+
+        #endregion
     }
 }

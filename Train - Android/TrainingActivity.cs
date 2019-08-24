@@ -21,13 +21,26 @@ namespace Train___Android
     [Activity(Label = "")]
     public class TrainingActivity : AppCompatActivity
     {
-        enum mode {exercise = 1, training = 2, plan = 3};
+        public enum mode {exercise = 1, training = 2, plan = 3};
         public BottomNavigationView bottomNavigation;
         ListView listView;
         List<Exercise> exercises;
         List<Training> trainings;
-        List<TrainingInPlan> plans;
-        private mode viewMode = mode.exercise;  //mode can be only 1 or 2 or 3, each represents if user is looking at exercises=1 or trainings=2 or plans=3
+        List<Plan> plans;
+        private mode _viewMode = mode.exercise;
+        public mode ViewMode
+        {
+            get { return _viewMode; }
+            private set
+            {
+                if (value != _viewMode)
+                {
+                    _viewMode = value;
+                    UpdateListItems();
+                }
+            }
+        }
+            //= mode.exercise;  //mode can be only 1 or 2 or 3, each represents if user is looking at exercises=1 or trainings=2 or plans=3
 
         private static bool isFabOpen;
         private FloatingActionButton fab_addItem;
@@ -35,11 +48,6 @@ namespace Train___Android
         private FloatingActionButton fabMain;
         private View bgFabMenu;
 
-
-        private void UpdateListItems()
-        {
-            exercises = MyDatabase.GetAllExercises();
-        }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -64,8 +72,9 @@ namespace Train___Android
             fab_addItem.Click += (o, e) =>
             {
                 CloseFabMenu();
-                var intent = new Intent(this, typeof(ExerciseActivity));
+                var intent = new Intent(this, typeof(EditOrViewActivity));
                 intent.PutExtra("cardView", false);
+                intent.PutExtra("viewMode", ViewMode.ToString()); //because there is no method to send enum, in java it is possible because there is enum ISerializable
                 StartActivity(intent);
             };
 
@@ -90,40 +99,73 @@ namespace Train___Android
 
             bottomNavigation = FindViewById<BottomNavigationView>(Resource.Id.bottom_navigation);
 
-            bottomNavigation.NavigationItemSelected += (sender, e) =>
-            {
-                switch (e.Item.ItemId)
-                {
-                    case Resource.Id.bottomNav_exercises:
-                        //ReplaceFragment(Resource.Id.fragmentContainer, new HomeFragment(), "HomeFragment");
-                        Toast.MakeText(Application.Context, "exercise", ToastLength.Short).Show();
-                        break;
-                    case Resource.Id.bottomNav_trainings:
-                        Toast.MakeText(Application.Context, "training", ToastLength.Short).Show();
-                        //ReplaceFragment(Resource.Id.fragmentContainer, new ReportBugFragment(), "ReportBugFragment");
-                        break;
-                    case Resource.Id.bottomNav_plans:
-                        Toast.MakeText(Application.Context, "plans", ToastLength.Short).Show();
-                        //ReplaceFragment(Resource.Id.fragmentContainer, new DatabaseFragment(), "DatabaseFragment");
-                        break;
-                }
-            };
+            bottomNavigation.NavigationItemSelected += OnBottomNavigationItemClick;
         }
+
+        private void OnBottomNavigationItemClick(object sender, BottomNavigationView.NavigationItemSelectedEventArgs e)
+        {
+            switch (e.Item.ItemId)
+            {
+                case Resource.Id.bottomNav_exercises:
+                    ViewMode = mode.exercise;
+                    //Toast.MakeText(Application.Context, "exercise", ToastLength.Short).Show();
+                    break;
+                case Resource.Id.bottomNav_trainings:
+                    //Toast.MakeText(Application.Context, "training", ToastLength.Short).Show();
+                    ViewMode = mode.training;
+                    break;
+                case Resource.Id.bottomNav_plans:
+                    //Toast.MakeText(Application.Context, "plans", ToastLength.Short).Show();
+                    ViewMode = mode.plan;
+                    break;
+            }
+        }
+
+        private void UpdateListItems()//dependent on viewMode
+        {
+            switch (ViewMode)
+            {
+                case mode.exercise:
+                    exercises = MyDatabase.GetAllExercises();
+                    listView.Adapter = new TrainingScreenAdapter<Exercise>(this, exercises);
+                    listView.ItemClick += OnListExerciseClick;
+                    break;
+                case mode.training:
+                    trainings = MyDatabase.GetAllTrainings();
+                    listView.Adapter = new TrainingScreenAdapter<Training>(this, trainings);
+                    listView.ItemClick += OnListTrainingClick;
+                    break;
+                case mode.plan:
+                    plans = MyDatabase.GetAllPlans();
+                    listView.Adapter = new TrainingScreenAdapter<Plan>(this, plans);
+                    listView.ItemClick += OnListPlanClick;
+                    break;
+            }
+        }
+
+        private void OnListExerciseClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            var intent = new Intent(this, typeof(EditOrViewActivity));
+            intent.PutExtra("cardView", true);
+            intent.PutExtra("exerciseId", exercises[e.Position].Id);
+            StartActivity(intent);
+        }
+
+        private void OnListTrainingClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OnListPlanClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
 
         protected override void OnResume()
         {
             base.OnResume();
             UpdateListItems();
-            listView.Adapter = new TrainingScreenAdapter<Exercise>(this, exercises);
-            listView.ItemClick += OnListItemClick;
-        }
-
-        private void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e)
-        {
-            var intent = new Intent(this, typeof(ExerciseActivity));
-            intent.PutExtra("cardView", true);
-            intent.PutExtra("exerciseId", exercises[e.Position].Id);
-            StartActivity(intent);
         }
 
         public override bool OnSupportNavigateUp()
@@ -132,12 +174,7 @@ namespace Train___Android
             return true;
         }
 
-        private void ReplaceFragment(int targetId, Android.Support.V4.App.Fragment fragment, string tag)
-        {
-            var trans = SupportFragmentManager.BeginTransaction();
-            trans.Replace(targetId, fragment, tag);
-            trans.Commit();
-        }
+       
 
         private void CloseFabMenu()
         {
