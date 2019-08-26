@@ -2,13 +2,35 @@
 <!--For all properties see: http://developer.android.com/guide/topics/resources/menu-resource.html-->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
   <group
-    android:id="@+id/editOrDeleteMenu_group">
+    android:id="@+id/editOrDeleteMenu_exercise_group">
     <item 
-      android:id="@+id/item_edit"
+      android:id="@+id/exercise_edit"
       android:title="Edit"/>
- 
     <item
-      android:id="@+id/item_delete"
+      android:id="@+id/exercise_delete"
       android:title="Delete"/>
   </group>
+  <group
+    android:id="@+id/editOrDeleteMenu_training_group">
+    <item
+      android:id="@+id/training_edit"
+      android:title="Edit"/>
+    <item
+      android:id="@+id/training_add_exercises"
+      android:title="Add exercises"/>
+    <item
+      android:id="@+id/training_delete"
+      android:title="Delete"/>
+  </group>
+  <group
+    android:id="@+id/editOrDeleteMenu_plan_group">
+    <item
+      android:id="@+id/plan_edit"
+      android:title="Edit"/>
+
+    <item
+      android:id="@+id/plan_delete"
+      android:title="Delete"/>
+  </group>
+  
 </menu>

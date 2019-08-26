@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using Train___Android.Database;
 
 namespace Train___Android
 {
@@ -31,13 +32,15 @@ namespace Train___Android
         }
         public override void OnPrepareOptionsMenu(IMenu menu)
         {
-            menu.SetGroupVisible(Resource.Id.editOrDeleteMenu_group, true);
+            menu.SetGroupVisible(Resource.Id.editOrDeleteMenu_exercise_group, true);
+            menu.SetGroupVisible(Resource.Id.editOrDeleteMenu_training_group, false);
+            menu.SetGroupVisible(Resource.Id.editOrDeleteMenu_plan_group, false);
             base.OnPrepareOptionsMenu(menu);
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            View view = inflater.Inflate(Resource.Layout.ExerciseCardView, container, false);
+            View view = inflater.Inflate(Resource.Layout.exercise_view_fragment, container, false);
 
             nameTextView = view.FindViewById<TextView>(Resource.Id.exerciseCardView_name);
             descriptionTextView = view.FindViewById<TextView>(Resource.Id.exerciseCardView_description);
@@ -45,11 +48,14 @@ namespace Train___Android
             difficultyTextView = view.FindViewById<TextView>(Resource.Id.exerciseCardView_difficulty);
             placeTextView = view.FindViewById<TextView>(Resource.Id.exerciseCardView_place);
 
-            nameTextView.Text = Arguments.GetString("name");
-            descriptionTextView.Text = Arguments.GetString("description");
-            timeTextView.Text = Arguments.GetInt("time").ToString();
-            difficultyTextView.Text = Arguments.GetByte("difficulty").ToString();
-            placeTextView.Text = Arguments.GetString("place");
+            int itemId = Arguments.GetInt("itemId");
+            var item = MyDatabase.GetExercise(itemId);
+
+            nameTextView.Text = item.Name;
+            descriptionTextView.Text = item.Description;
+            timeTextView.Text = item.Time.ToString();
+            difficultyTextView.Text = item.Difficulty.ToString();
+            placeTextView.Text = item.Place;
             
             //homeActivity.ShowOverflowMenu(true);
 

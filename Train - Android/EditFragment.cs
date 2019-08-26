@@ -38,7 +38,9 @@ namespace Train___Android
 
         public override void OnPrepareOptionsMenu(IMenu menu)
         {
-            menu.SetGroupVisible(Resource.Id.editOrDeleteMenu_group, false);
+            menu.SetGroupVisible(Resource.Id.editOrDeleteMenu_exercise_group, false);
+            menu.SetGroupVisible(Resource.Id.editOrDeleteMenu_training_group, false);
+            menu.SetGroupVisible(Resource.Id.editOrDeleteMenu_plan_group, false);
             base.OnPrepareOptionsMenu(menu);
         }
         
@@ -69,27 +71,45 @@ namespace Train___Android
 
             bool newItem = Arguments.GetBoolean("newItem");
 
+
             if (!newItem)
             {
-                //set all edittexts with current values
-                nameEditText.Text = Arguments.GetString("name");
-                descriptionEditText.Text = Arguments.GetString("description");
-                if(viewMode == mode.exercise)
+                int itemId = Arguments.GetInt("itemId");
+
+                //set all editTexts with current values
+                switch (viewMode)
                 {
-                    timeEditText.Text = Arguments.GetInt("time").ToString();
-                    difficultyEditText.Text = Arguments.GetByte("difficulty").ToString();
-                    placeEditText.Text = Arguments.GetString("place");
-                }
+                    case mode.exercise:
+                        Exercise exercise = MyDatabase.GetExercise(itemId);
+                        nameEditText.Text = exercise.Name;
+                        descriptionEditText.Text = exercise.Description;
+                        timeEditText.Text = exercise.Time.ToString();
+                        difficultyEditText.Text =exercise.Difficulty.ToString();
+                        placeEditText.Text = exercise.Place;
+                        break;
+                    case mode.training:
+                        Training training = MyDatabase.GetTraining(itemId);
+                        nameEditText.Text = training.Name;
+                        descriptionEditText.Text = training.Description;
+                        break;
+                    case mode.plan:
+                        Plan plan = MyDatabase.GetPlan(itemId);
+                        nameEditText.Text = plan.Name;
+                        descriptionEditText.Text = plan.Description;
+                        break;
+                }                
             }
             
             
             return view;
         }
 
+       
+
         private void NewItemDone(object sender, EventArgs e)
         {
             int a = 0;
-            if ((nameEditText.Text).Replace(" ", "").Length == 0         //all fields must be set
+            if ((nameEditText.Text).Replace(" ", "").Length == 0         //common condition for exercises, trainings, plans
                 || (descriptionEditText.Text).Replace(" ", "").Length == 0)
             {
                 Toast.MakeText(Activity, "All fields must be set", ToastLength.Short).Show();

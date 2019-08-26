@@ -33,13 +33,15 @@ namespace Train___Android
         IMenu menu;
         private int itemId = 0;
         private bool cardView;
-        Intent intent;
         mode viewMode;
+        //Android.Support.V4.App.FragmentTransaction trans;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_editOrView);
+
+            //trans = SupportFragmentManager.BeginTransaction();
 
             //setting toolbar
             var toolbar = FindViewById<V7Toolbar>(Resource.Id.toolbar);
@@ -50,18 +52,21 @@ namespace Train___Android
             viewMode = Enum.Parse<mode>(Intent.GetStringExtra("viewMode"));
             cardView = Intent.GetBooleanExtra("cardView", true);
 
-            intent = new Intent(this, typeof(EditFragment));
             if (cardView)
             {
-                itemId = Intent.GetIntExtra("itemId", 0);   //0 is there just because there is required default value
-                exercise = MyDatabase.GetExercise(itemId);
-                
+                itemId = Intent.GetIntExtra("itemId", -1);   //-1 is there just because there is required default value
                 StartCardView();
             }
-            else //this branch means that user is creating new exercise/training/plan
+            else //this branch means that user is creating new exercise/training/plan NOT editing existing one
             {
                 StartEditView(true);
             }
+        }
+            
+        protected override void OnPause()
+        {
+            base.OnPause();
+            
         }
 
         #region interface implementation
@@ -119,24 +124,29 @@ namespace Train___Android
                 Finish(); 
             }
         }
-        //public void ShowOverflowMenu(bool showMenu)
-        //{
-        //    if (menu == null)
-        //        return;
-        //    menu.SetGroupVisible(Resource.Id.editOrDeleteMenu_group, showMenu);
-        //}
-
+        
         #endregion
 
         private void StartCardView()
         {
             Bundle args = new Bundle();
-            SaveItemProperties(args);
-            //ShowOverflowMenu(true); //showing menu
+            args.PutInt("itemId", itemId);
             var trans = SupportFragmentManager.BeginTransaction();
-            var nextFragment = new ExerciseCardViewFragment();
+            Android.Support.V4.App.Fragment nextFragment = null;
+            switch (viewMode)
+            {
+                case mode.exercise:
+                    nextFragment = new ExerciseCardViewFragment();
+                    break;
+                case mode.training:
+                    nextFragment = new TrainingViewFragment();
+                    break;
+                case mode.plan:
+                    nextFragment = new ExerciseCardViewFragment();//not implemented yet
+                    break;
+            }
             nextFragment.Arguments = args;
-            trans.Add(Resource.Id.fragmentContainer_activityExercise, nextFragment, "ExerciseCardViewFragment");
+            trans.Replace(Resource.Id.fragmentContainer_activityEditOrView, nextFragment, nextFragment.GetType().ToString());
             trans.Commit();
         }
 
@@ -149,27 +159,17 @@ namespace Train___Android
             args.PutString("viewMode", viewMode.ToString());
 
             if (!newItem)
-            {
-                SaveItemProperties(args);
-            }
-
+                args.PutInt("itemId", itemId);
+                
             nextFragment.Arguments = args;
-            trans.Add(Resource.Id.fragmentContainer_activityExercise, nextFragment, "ExerciseEditFragment");
+            trans.Replace(Resource.Id.fragmentContainer_activityEditOrView, nextFragment, "ExerciseEditFragment");
+
+            if(!newItem)
+                trans.AddToBackStack(null);
+
             trans.Commit();
         }
 
-        private void SaveItemProperties(Bundle args)
-        {
-            //Bundle args = new Bundle();
-            args.PutString("name", exercise.Name);
-            args.PutString("description", exercise.Description);
-            if(viewMode == mode.exercise)
-            {
-                args.PutInt("time", exercise.Time);
-                args.PutByte("difficulty", (sbyte)exercise.Difficulty);     //only way is using sbyte, but htat doesn't matter because difficulty is between 1 and 10
-                args.PutString("place", exercise.Place);
-            }
-        }
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             var inflater = MenuInflater;
@@ -183,11 +183,25 @@ namespace Train___Android
         {
             switch (item.ItemId)
             {
-                case Resource.Id.item_edit:
+                case Resource.Id.exercise_edit:
                     StartEditView(false);
                     return true;
-                case Resource.Id.item_delete:
+                case Resource.Id.exercise_delete:
                     MyDatabase.DeleteExercise(itemId);
+                    Finish();
+                    return true;
+                case Resource.Id.training_edit:
+                    StartEditView(false);
+                    return true;
+                case Resource.Id.training_delete:
+                    MyDatabase.DeleteTraining(itemId);
+                    Finish();
+                    return true;
+                case Resource.Id.plan_edit:
+                    StartEditView(false);
+                    return true;
+                case Resource.Id.plan_delete:
+                    MyDatabase.DeletePlan(itemId);
                     Finish();
                     return true;
                 case Android.Resource.Id.Home:

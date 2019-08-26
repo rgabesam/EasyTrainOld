@@ -65,7 +65,7 @@ namespace Train___Android
                             Toast.MakeText(Application.Context, "Remember: no pain no gain.", ToastLength.Short).Show();
                             break;
                         }
-                    case Resource.Id.nav_database:
+                    case Resource.Id.nav_import:
                         {
                             ReplaceFragment(Resource.Id.fragmentContainer, new DatabaseFragment(), "DatabaseFragment");
                             Toast.MakeText(Application.Context, "What do you have for me today?", ToastLength.Short).Show();

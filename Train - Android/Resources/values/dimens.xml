@@ -3,6 +3,8 @@
   <dimen name="fab_margin">16dp</dimen>
   <dimen name="fab_margin_withBottomBar">62dp</dimen>
  
+  <dimen name="cardView_margin">4dp</dimen>
+  
   <dimen name="standard_12">12dp</dimen>
   <dimen name="standard_23">23dp</dimen>
   <dimen name="standard_55">55dp</dimen>

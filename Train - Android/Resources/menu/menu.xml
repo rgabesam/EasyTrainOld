@@ -9,8 +9,8 @@
           android:id="@+id/nav_goTrain"  
           android:title="Go train" />  
         <item  
-          android:id="@+id/nav_database"  
-          android:title="Database" />  
+          android:id="@+id/nav_import"  
+          android:title="Import" />  
         <item 
           android:id="@+id/nav_faq" 
           android:title="FAQ" />

@@ -33,15 +33,22 @@ namespace Train___Android
             get { return _viewMode; }
             private set
             {
-                if (value != _viewMode)
+                if (value != _viewMode)//if is value changing
                 {
+                    //when mode is changing listview before subscribing to new event handler needs to unsubscribe the old one
+                    //if(_viewMode == mode.exercise)
+                    //    listView.ItemClick -= OnListExerciseClick;
+                    //else if (_viewMode == mode.training)
+                    //    listView.ItemClick -= OnListTrainingClick;
+                    //else if (_viewMode == mode.plan)
+                    //    listView.ItemClick -= OnListPlanClick;
+
                     _viewMode = value;
                     UpdateListItems();
                 }
             }
         }
-            //= mode.exercise;  //mode can be only 1 or 2 or 3, each represents if user is looking at exercises=1 or trainings=2 or plans=3
-
+        //mode can be only 1 or 2 or 3, each represents if user is looking at exercises=1 or trainings=2 or plans=3
         private static bool isFabOpen;
         private FloatingActionButton fab_addItem;
         private FloatingActionButton fab_filter;
@@ -88,6 +95,8 @@ namespace Train___Android
             #endregion
 
             listView = FindViewById<ListView>(Resource.Id.trainings_list);
+            listView.ItemClick += OnListItemClick;
+
             var toolbar = FindViewById<V7Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
@@ -100,6 +109,12 @@ namespace Train___Android
             bottomNavigation = FindViewById<BottomNavigationView>(Resource.Id.bottom_navigation);
 
             bottomNavigation.NavigationItemSelected += OnBottomNavigationItemClick;
+        }
+
+        protected override void OnResume()
+        {
+            UpdateListItems();
+            base.OnResume();
         }
 
         private void OnBottomNavigationItemClick(object sender, BottomNavigationView.NavigationItemSelectedEventArgs e)
@@ -128,44 +143,38 @@ namespace Train___Android
                 case mode.exercise:
                     exercises = MyDatabase.GetAllExercises();
                     listView.Adapter = new TrainingScreenAdapter<Exercise>(this, exercises);
-                    listView.ItemClick += OnListExerciseClick;
                     break;
                 case mode.training:
                     trainings = MyDatabase.GetAllTrainings();
                     listView.Adapter = new TrainingScreenAdapter<Training>(this, trainings);
-                    listView.ItemClick += OnListTrainingClick;
                     break;
                 case mode.plan:
                     plans = MyDatabase.GetAllPlans();
                     listView.Adapter = new TrainingScreenAdapter<Plan>(this, plans);
-                    listView.ItemClick += OnListPlanClick;
                     break;
             }
         }
 
-        private void OnListExerciseClick(object sender, AdapterView.ItemClickEventArgs e)
+        private void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            var intent = new Intent(this, typeof(EditOrViewActivity));
+            Intent intent = null;
+            switch (ViewMode)
+            {
+                case mode.exercise:
+                    intent = new Intent(this, typeof(EditOrViewActivity));
+                    intent.PutExtra("itemId", exercises[e.Position].Id);
+                    break;
+                case mode.training:
+                    intent = new Intent(this, typeof(EditOrViewActivity));
+                    intent.PutExtra("itemId", trainings[e.Position].Id);
+                    break;
+                case mode.plan:
+                    //var intent = new Intent(this, typeof(EditOrViewActivity));
+                    break;
+            }
+            intent.PutExtra("viewMode", ViewMode.ToString());
             intent.PutExtra("cardView", true);
-            intent.PutExtra("exerciseId", exercises[e.Position].Id);
             StartActivity(intent);
-        }
-
-        private void OnListTrainingClick(object sender, AdapterView.ItemClickEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void OnListPlanClick(object sender, AdapterView.ItemClickEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        protected override void OnResume()
-        {
-            base.OnResume();
-            UpdateListItems();
         }
 
         public override bool OnSupportNavigateUp()
