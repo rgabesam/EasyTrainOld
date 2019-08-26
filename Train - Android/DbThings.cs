@@ -96,6 +96,13 @@ namespace Train___Android.Database
     [Table("ExerciseInTraining")]
     class ExerciseInTraining
     {
+        public ExerciseInTraining() { }
+        public ExerciseInTraining(int exerciseId, int trainingId)
+        {
+            ExerciseId = exerciseId;
+            TrainingId = trainingId;
+        }
+
         public int ExerciseId { get; set; }
         public int TrainingId { get; set; }
     }

@@ -40,6 +40,7 @@ namespace Train___Android.Database
         }
 
         #region Exercise methods
+
         static public void InsertExercise(Exercise exercise)
         {
             connection.Insert(exercise);
@@ -151,6 +152,37 @@ namespace Train___Android.Database
         {
             connection.Delete<Plan>(id);
         }
+
+        #endregion
+
+        #region ExerciseInTraining
+
+        static public void InsertExerciseToTraining(ExerciseInTraining item)
+        {
+            connection.Insert(item);
+        }
+
+        static public List<ExerciseInTraining> GetAllExeercisesInAllTrainings()
+        {
+            return connection.Table<ExerciseInTraining>().ToList();
+        }
+
+        static public List<Exercise> GetAllExercisesOfTraining(int trainingId)
+        {
+            return connection.Query<Exercise>($"SELECT * FROM Exercises a " +
+                $"INNER JOIN" +
+                    $"(SELECT * FROM ExerciseInTraining " +
+                    $"WHERE TrainingId='{trainingId}') b " +
+                $"ON a.Id = b.ExerciseId");
+        }
+
+        static public void DeleteExerciseInTraining(int exerciseId, int trainingId)
+        {
+            connection.Execute($"DELETE FROM ExerciseInTraining " +
+                $"WHERE TrainingId='{trainingId}' " +
+                $"AND ExerciseId='{exerciseId}'");
+        }
+        
 
         #endregion
     }
