@@ -7,3 +7,9 @@ bin
 /Train - Android/EasyTrain - Android.csproj
 /Train - Android/*.user
 /Train - Android/EasyTrain - Android.csproj.user
+
+*.userprefs
+*.user
+packages
+.nuget
+.vs/
