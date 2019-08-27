@@ -12,4 +12,4 @@ bin
 *.user
 packages
 .nuget
-.vs/
+.vs/*
