@@ -5,3 +5,5 @@ bin
 /EasyTrain.sln
 /Train - Android/EasyTrain - Android.csproj.user
 /Train - Android/EasyTrain - Android.csproj
+/Train - Android/*.user
+/Train - Android/EasyTrain - Android.csproj.user
