@@ -1,2 +1,7 @@
 obj
 bin
+/xamarin packages.txt
+
+/EasyTrain.sln
+/Train - Android/EasyTrain - Android.csproj.user
+/Train - Android/EasyTrain - Android.csproj

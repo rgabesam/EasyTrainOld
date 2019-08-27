@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/training_view_switch_button"
-        android:text="Switch to owned exercises"
+        android:text="Switch to exercises"
         android:padding="@dimen/cardView_margin"
         android:textSize="20sp"
         android:elevation="15dp"/>

@@ -23,6 +23,7 @@ namespace Train___Android
         ScrollView scrollView;
         Button switchViewButton;
         private bool exercisesDisplayed = false;
+        int itemId;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -44,11 +45,12 @@ namespace Train___Android
             nameTextView = view.FindViewById<TextView>(Resource.Id.training_CardView_name);
             descriptionTextView = view.FindViewById<TextView>(Resource.Id.training_CardView_description);
             listView = view.FindViewById<ListView>(Resource.Id.exercises_in_training_list);
+            listView.ItemClick += OnListExerciseClick;
             scrollView = view.FindViewById<ScrollView>(Resource.Id.training_view_scrollView);
             switchViewButton = view.FindViewById<Button>(Resource.Id.training_view_switch_button);
             switchViewButton.Click += SwitchTrainingView;
 
-            int itemId = Arguments.GetInt("itemId");
+            itemId = Arguments.GetInt("itemId");
             var item = MyDatabase.GetTraining(itemId);
 
             nameTextView.Text = item.Name;
@@ -69,12 +71,13 @@ namespace Train___Android
                 exercisesDisplayed = true;
                 switchViewButton.Text = "Switch back to properties";
                 scrollView.Visibility = ViewStates.Gone;
+                UpdateListItems();
                 listView.Visibility = ViewStates.Visible;
             }
             else
             {
                 exercisesDisplayed = false;
-                switchViewButton.Text = "Switch to owned exercises";
+                switchViewButton.Text = "Switch to exercises";
                 listView.Visibility = ViewStates.Gone;
                 scrollView.Visibility = ViewStates.Visible;
             }
@@ -82,9 +85,9 @@ namespace Train___Android
 
         private void UpdateListItems()
         {
-            ownedExercises = MyDatabase.GetAllExercises();//not right implementation yet
+            ownedExercises = MyDatabase.GetAllExercisesOfTraining(itemId);
             listView.Adapter = new TrainingScreenAdapter<Exercise>(Activity, ownedExercises);
-            listView.ItemClick += OnListExerciseClick;
+            
         }
 
         private void OnListExerciseClick(object sender, AdapterView.ItemClickEventArgs e)

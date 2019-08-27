@@ -35,14 +35,6 @@ namespace Train___Android
             {
                 if (value != _viewMode)//if is value changing
                 {
-                    //when mode is changing listview before subscribing to new event handler needs to unsubscribe the old one
-                    //if(_viewMode == mode.exercise)
-                    //    listView.ItemClick -= OnListExerciseClick;
-                    //else if (_viewMode == mode.training)
-                    //    listView.ItemClick -= OnListTrainingClick;
-                    //else if (_viewMode == mode.plan)
-                    //    listView.ItemClick -= OnListPlanClick;
-
                     _viewMode = value;
                     UpdateListItems();
                 }
@@ -88,7 +80,7 @@ namespace Train___Android
             fab_filter.Click += (o, e) =>
             {
                 CloseFabMenu();
-                Toast.MakeText(this, "NO FILTERS MOROON!", ToastLength.Short).Show();
+                Toast.MakeText(this, "No filters yet!", ToastLength.Short).Show();
             };
 
             bgFabMenu.Click += (o, e) => CloseFabMenu();

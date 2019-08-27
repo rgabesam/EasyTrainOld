@@ -63,11 +63,7 @@ namespace Train___Android
             }
         }
             
-        protected override void OnPause()
-        {
-            base.OnPause();
-            
-        }
+    
 
         #region interface implementation
 
@@ -170,6 +166,23 @@ namespace Train___Android
             trans.Commit();
         }
 
+        private void StartCheckableListView()
+        {
+            var trans = SupportFragmentManager.BeginTransaction();
+            var nextFragment = new CheckableItemListFragment();
+            Bundle args = new Bundle();
+            
+            args.PutString("viewMode", viewMode.ToString());
+            args.PutInt("itemId", itemId);
+
+            nextFragment.Arguments = args;
+            trans.Replace(Resource.Id.fragmentContainer_activityEditOrView, nextFragment, "CheckableItemListFragment");
+
+            trans.AddToBackStack(null);
+
+            trans.Commit();
+        }
+
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             var inflater = MenuInflater;
@@ -193,6 +206,9 @@ namespace Train___Android
                 case Resource.Id.training_edit:
                     StartEditView(false);
                     return true;
+                case Resource.Id.training_add_exercises:
+                    StartCheckableListView();
+                    break;
                 case Resource.Id.training_delete:
                     MyDatabase.DeleteTraining(itemId);
                     Finish();
@@ -207,6 +223,7 @@ namespace Train___Android
                 case Android.Resource.Id.Home:
                     OnBackPressed();
                     break;
+                
             }
             return base.OnOptionsItemSelected(item);
         }

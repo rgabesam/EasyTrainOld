@@ -1,36 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:padding="5dp"
-    cardview:cardElevation="7dp"
-    cardview:cardCornerRadius="7dp">
-    <LinearLayout
+    android:orientation="horizontal">
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/item_checkbox"
+        android:visibility="gone"
+        android:layout_gravity="center"/>
+    <!--android:focusable="false"-->
+    <android.support.v7.widget.CardView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp"
-        android:layout_margin="5dp"
-        android:background="#FFE5CC">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="17sp"
-            android:textColor="#333333"
-            android:text="Title"
-            android:layout_gravity="center"
-            android:id="@+id/item_name"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="12sp"
-            android:textColor="#333333"
-            android:text="VEry very long and boring description telling absolutely nothing."
-            android:id="@+id/item_description"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"/>
-    </LinearLayout>
-</android.support.v7.widget.CardView>
+        android:layout_gravity="center_horizontal"
+        android:padding="5dp"
+        cardview:cardElevation="7dp"
+        cardview:cardCornerRadius="7dp">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:layout_margin="5dp"
+            android:background="#FFE5CC">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="17sp"
+                android:textColor="#333333"
+                android:text="Title"
+                android:layout_gravity="center"
+                android:id="@+id/item_name"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="12sp"
+                android:textColor="#333333"
+                android:text="VEry very long and boring description telling absolutely nothing."
+                android:id="@+id/item_description"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

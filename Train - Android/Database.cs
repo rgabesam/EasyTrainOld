@@ -162,18 +162,31 @@ namespace Train___Android.Database
             connection.Insert(item);
         }
 
-        static public List<ExerciseInTraining> GetAllExeercisesInAllTrainings()
+        static public List<ExerciseInTraining> GetAllExercisesInAllTrainings()
         {
             return connection.Table<ExerciseInTraining>().ToList();
         }
 
         static public List<Exercise> GetAllExercisesOfTraining(int trainingId)
         {
-            return connection.Query<Exercise>($"SELECT * FROM Exercises a " +
+            return connection.Query<Exercise>($"SELECT Id, Name, Description, Time, Difficulty, Place " +
+                $"FROM Exercises a " +
                 $"INNER JOIN" +
                     $"(SELECT * FROM ExerciseInTraining " +
                     $"WHERE TrainingId='{trainingId}') b " +
                 $"ON a.Id = b.ExerciseId");
+        }
+
+        static public List<Exercise> GetAllExercisesWhichAreNotInTraining(int trainingId)
+        {
+            return connection.Query<Exercise>($"SELECT * FROM Exercises " +
+                $"EXCEPT " +
+                    $"SELECT Id, Name, Description, Time, Difficulty, Place " +
+                    $"FROM Exercises a " +
+                    $"INNER JOIN" +
+                        $"(SELECT * FROM ExerciseInTraining " +
+                        $"WHERE TrainingId='{trainingId}') b " +
+                    $"ON a.Id = b.ExerciseId");
         }
 
         static public void DeleteExerciseInTraining(int exerciseId, int trainingId)
@@ -181,8 +194,7 @@ namespace Train___Android.Database
             connection.Execute($"DELETE FROM ExerciseInTraining " +
                 $"WHERE TrainingId='{trainingId}' " +
                 $"AND ExerciseId='{exerciseId}'");
-        }
-        
+        }        
 
         #endregion
     }
