@@ -64,14 +64,12 @@ namespace Train___Android
 
         private void AddCheckedExercises(object sender, EventArgs e)
         {
-            var checkedItems = listView.CheckedItemPositions;
-            //for (int i = 0; i < checkedItems.Size(); i++)
             for (int i = 0; i < listView.Adapter.Count; i++)
             {
-                //MyDatabase.InsertExerciseToTraining(new ExerciseInTraining(((TrainingScreenAdapter<Exercise>)listView.Adapter)[checkedItems.ValueAt(i)].Id, itemId));
-                if(listView.item)
+                
+                if (listView.GetChildAt(i).FindViewById<CheckBox>(Resource.Id.item_checkbox).Checked)
                     MyDatabase.InsertExerciseToTraining(new ExerciseInTraining(((TrainingScreenAdapter<Exercise>)listView.Adapter)[i].Id, itemId));
-                listView.
+                
             }
 
             Activity.SupportFragmentManager.PopBackStackImmediate();
